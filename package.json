@@ -1,6 +1,6 @@
 {
   "name": "@saltcorn/material-design",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Material Design theme based on mdbootstrap",
   "main": "index.js",
   "scripts": {
