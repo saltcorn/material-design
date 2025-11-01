@@ -68,13 +68,21 @@ const horizontalLineItem = (classes = []) =>
     hr({ class: ["hr my-1"] })
   );
 
-const horizontalSubItem = (currentUrl) => (item) =>
+const horizontalSubItem = (currentUrl, config) => (item) =>
   li(
     item.link
       ? a(
           {
             class: ["dropdown-item", active(currentUrl, item) && "active"],
             href: text(item.link),
+            ...(item.tooltip
+              ? {
+                  "data-mdb-placement":
+                    config?.layout_style === "Vertical" ? "right" : "bottom",
+                  "data-bs-toggle": "tooltip",
+                  title: item.tooltip,
+                }
+              : {}),
           },
           item.icon && item.icon !== "empty" && item.icon !== "undefined"
             ? i({
@@ -98,6 +106,13 @@ const verticalSubItem = (currentUrl) => (item) =>
               active(currentUrl, item) && "active",
             ],
             href: text(item.link),
+            ...(item.tooltip
+              ? {
+                  "data-mdb-placement": "right",
+                  "data-bs-toggle": "tooltip",
+                  title: item.tooltip,
+                }
+              : {}),
           },
           item.icon && item.icon !== "empty" && item.icon !== "undefined"
             ? i({
@@ -151,7 +166,7 @@ const verticalSideBarItem =
           {
             class: ["dropdown-menu", ix === nitems - 1 && "dropdown-menu-end"],
           },
-          item.subitems.map(horizontalSubItem(currentUrl))
+          item.subitems.map(horizontalSubItem(currentUrl, config))
         )
       );
     } else if (item.isUser && user?.email) {
@@ -166,6 +181,7 @@ const verticalSideBarItem =
             "data-bs-toggle": "dropdown",
             role: "button",
             "aria-expanded": "false",
+            title: item?.tooltip,
           },
           div(
             {
@@ -180,7 +196,7 @@ const verticalSideBarItem =
           {
             class: ["dropdown-menu", ix === nitems - 1 && "dropdown-menu-end"],
           },
-          item.subitems.map(horizontalSubItem(currentUrl))
+          item.subitems.map(horizontalSubItem(currentUrl, config))
         )
       );
     }
@@ -225,6 +241,7 @@ const verticalSideBarItem =
                   "data-bs-toggle": "collapse",
                   "aria-expanded": "false",
                   "aria-controls": "collapse_item_" + ix,
+                  title: item?.tooltip,
                 },
                 //i({ class: "fas fa-fw fa-wrench" }),
                 item.icon && item.icon !== "empty" && item.icon !== "undefined"
@@ -267,13 +284,20 @@ const verticalSideBarItem =
                 ],
                 href: text(item.link),
                 ...(is_active && { "aria-current": "page" }),
+                ...(item.tooltip
+                  ? {
+                      "data-mdb-placement": "right",
+                      "data-bs-toggle": "tooltip",
+                      title: item.tooltip,
+                    }
+                  : {}),
               },
               item.icon && item.icon !== "empty" && item.icon !== "undefined"
                 ? span(
                     { class: "me-2" },
                     i({
                       class: `fa-fw ${item.icon} object-fit-contain`,
-                      styyle: "width: 16px; height: 16px;",
+                      style: "width: 16px; height: 16px;",
                     })
                   )
                 : "",
