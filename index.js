@@ -1194,7 +1194,7 @@ const vertical_sidebar_sections = (
           src: brand.logo,
           alt: "Logo",
           class: "me-2 object-fit-contain",
-          width: "40",
+          width: "32",
           height: "32",
         }),
       (!config?.hide_site_name || !brand.logo) && brand.name
@@ -1520,6 +1520,8 @@ const horizontal_header_sections = (
             ? img({
                 src: brand.logo,
                 alt: "Logo",
+                width: "30",
+                height: "30",
                 class: "navbar-brand-image mx-1",
               })
             : "",
