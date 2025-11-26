@@ -1929,7 +1929,7 @@ module.exports = {
         userLayout.config.is_user_config = true;
         attrs.layout = userLayout;
         await dbUser.update({ _attributes: attrs });
-        await db.commitAndBeginNewTransaction?.();
+        //await db.commitAndBeginNewTransaction?.();
         await getState().refreshUserLayouts?.();
         await dbUser.relogin(req);
         return { reload_page: true };
