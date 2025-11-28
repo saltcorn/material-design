@@ -434,7 +434,10 @@ const splitPrimarySecondaryMenu = (menu) => {
       .map((mi) => ({
         ...mi,
         items: mi.items.filter(
-          (item) => item.location !== "Secondary Menu" && mi.section !== "User"
+          (item) =>
+            item.location !== "Secondary Menu" &&
+            mi.section !== "User" &&
+            !mi.isUser
         ),
       }))
       .filter(({ items }) => items.length),
@@ -442,7 +445,10 @@ const splitPrimarySecondaryMenu = (menu) => {
       .map((mi) => ({
         ...mi,
         items: mi.items.filter(
-          (item) => item.location === "Secondary Menu" || mi.section === "User"
+          (item) =>
+            item.location === "Secondary Menu" ||
+            mi.section === "User" ||
+            mi.isUser
         ),
       }))
       .filter(({ items }) => items.length),
@@ -1929,7 +1935,7 @@ module.exports = {
         userLayout.config.is_user_config = true;
         attrs.layout = userLayout;
         await dbUser.update({ _attributes: attrs });
-        //await db.commitAndBeginNewTransaction?.();
+        await db.commitAndBeginNewTransaction?.();
         await getState().refreshUserLayouts?.();
         await dbUser.relogin(req);
         return { reload_page: true };
