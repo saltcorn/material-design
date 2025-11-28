@@ -566,7 +566,7 @@ const renderBody = (title, body, alerts, config, role, req) =>
     alerts,
   });
 
-const wrapIt = (config, bodyAttr, headers, title, body) => {
+const wrapIt = (config, bodyAttr, headers, title, body, req) => {
   const primary =
     (config?.mode === "light"
       ? config?.primary_color_light
@@ -585,8 +585,8 @@ const wrapIt = (config, bodyAttr, headers, title, body) => {
 
   const link_cover_color = adjustColor(primary, { l: -3 });
   const mdb_btn_color = adjustColor(primary, { l: +15 });
-  const isRTL = config?.rtl_mode || false;
-  const langCode = isRTL ? config?.locale_lang_code || "ar" : "en";
+  const isRTL = req?.isRTL || false;
+  const langCode = req?.getLocale?.() || "en";
   const cssFile = isRTL ? "mdb.rtl.min.css" : "mdb.min.css";
   return `<!doctype html>
 <html lang="${langCode}" data-bs-theme="${config.mode || "light"}"${
@@ -1338,7 +1338,8 @@ const layout = (config) => ({
           </div>
         </div>
     </div>
-    `
+    `,
+      req
     ),
   renderBody: ({ title, body, alerts, role, req }) =>
     renderBody(title, body, alerts, config, role, req),
@@ -1851,22 +1852,6 @@ const configuration_workflow = (config) =>
                   max: 5,
                   min: 0,
                 },
-              },
-              {
-                name: "rtl_mode",
-                label: "RTL (Right-to-Left) Mode",
-                sublabel:
-                  "Enable for Arabic, Hebrew, Persian and other RTL languages",
-                type: "Bool",
-                required: false,
-              },
-              {
-                name: "locale_lang_code",
-                label: "Locale Language Code",
-                sublabel: "e.g. en, zh, fr, ar etc.",
-                type: "String",
-                required: false,
-                showIf: { rtl_mode: true },
               },
               {
                 name: "primary_color_light",
