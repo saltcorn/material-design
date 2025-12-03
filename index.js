@@ -466,6 +466,8 @@ const showBrand = (brand, config) =>
         src: brand.logo,
         alt: "Logo",
         class: "navbar-brand-image mx-1",
+        width: "32",
+        height: "32",
       }),
     !config?.hide_site_name && brand.name
   );
