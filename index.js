@@ -867,8 +867,8 @@ const wrapIt = (
       margin-right: -2.5em;
     }
     
-    section.page-section.fw-check:has(> .container > .full-page-width:first-child),
-    section.page-section.fw-check:has(> .container-fluid > .full-page-width:first-child) {
+    section.page-section.fw-check:first-child:has(> .container > .full-page-width:first-child),
+    section.page-section.fw-check:first-child:has(> .container-fluid > .full-page-width) {
       padding-top: 0 !important;
       margin-top: ${
         config.colorscheme === "" || config.colorscheme === "transparent-dark"
