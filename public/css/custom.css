@@ -1,0 +1,133 @@
+/* Sidenav */
+
+.sidenav {
+  z-index: 1035;
+  width: 280px;
+  height: 100vh;
+  justify-content: start;
+  align-items: start;
+}
+
+.sidenav-zIndex {
+  z-index: 1035;
+}
+
+.nav-link {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+  margin: 1px 0;
+}
+
+.sidenav .nav .nav-item {
+  margin: 0;
+}
+
+.sidenav .nav .nav-link {
+  --mdb-nav-link-color: var(--mdb-secondary-text-emphasis);
+  font-size: 0.89rem;
+  border-radius: 0.25rem;
+  margin: 2px 0;
+}
+
+.sidenav .nav-link:hover {
+  background-color: var(--mdb-highlight-bg-color);
+}
+
+.sidenav .nav-link.active {
+  background-color: var(--mdb-primary-bg-subtle);
+}
+
+.sidenav .nav-item:has(.collapse) > .nav-link.active,
+.sidenav .nav-item:has(.collapse) > a.active {
+  background-color: rgba(18, 102, 241, 0.05);
+}
+
+.sidenav .nav-item:has(.collapse):has(.nav-link.active) > .nav-link,
+.sidenav .nav-item:has(.collapse):has(.nav-link.active) > a {
+  background-color: rgba(18, 102, 241, 0.05);
+}
+
+.sidenav .nav-item:not(:has(.collapse)) > .nav-link.active {
+  background-color: var(--mdb-primary-bg-subtle) !important;
+}
+
+.sidenav .nav .nav .nav-link {
+  --mdb-nav-link-color: var(--mdb-secondary-text-emphasis);
+  font-size: 0.78rem;
+  padding: 0.4rem 2rem;
+  margin: 2px 0;
+}
+
+.sidenav .nav .nav .nav .nav-link {
+  padding: 0.4rem 2rem 0.35rem;
+  font-size: 0.75rem;
+  border-radius: 0.25rem;
+  margin: 2px 0;
+}
+
+.sidenav .nav .nav .nav .nav-link.active {
+  background-color: var(--mdb-primary-bg-subtle);
+}
+
+.sidenav .nav .nav .nav .nav .nav-link {
+  padding: 0.4rem 2rem;
+  font-size: 0.72rem;
+  border-radius: 0.25rem;
+  margin: 2px 0;
+}
+
+.sidenav .sidenav-collapse-icon {
+  transition: transform 0.3s ease;
+}
+
+.sidenav .nav-item:has(> .collapse.show) > .nav-link .sidenav-collapse-icon,
+.sidenav .nav-item:has(> .collapse.show) > a .sidenav-collapse-icon {
+  transform: rotate(180deg);
+}
+
+.navbar-light .navbar-toggler-icon,
+.sidenav-light .navbar-toggler-icon,
+.navbar-dark .navbar-toggler-icon,
+.sidenav-dark .navbar-toggler-icon {
+  --mdb-navbar-toggler-icon-bg: unset;
+  background-image: var(--mdb-navbar-toggler-icon-bg);
+}
+
+body:has(.sidenav) {
+  margin-left: 280px;
+}
+.offcanvas:has(.sidenav) {
+  --mdb-offcanvas-width: 280px;
+}
+
+@media screen and (max-width: 992px) {
+  body:has(.sidenav) {
+    margin-left: 0;
+  }
+}
+
+/* table-rows */
+
+.table> tbody > tr:nth-of-type(odd) > * {
+  background-color: var(--mdb-table-striped-bg, #00000005);
+  color: var(--mdb-table-striped-color, inherit);
+}
+
+[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > *,
+html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
+  background-color: #424242;
+  color: var(--mdb-table-striped-color, inherit);
+}
+
+.table-hover > tbody > tr:hover > * {
+  background-color: rgba(0, 0, 0, 0.04) !important;
+}
+[data-bs-theme="dark"] .table-hover > tbody > tr:hover > * {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+}
+
+.table-sm > :not(caption) > * > * {
+  padding: 0.5rem 0.5rem;
+}

@@ -613,9 +613,7 @@ const wrapIt = (
     <!-- Material Design Bootstrap -->
     <link href="/plugins/public/material-design${verstring}/css/${cssFile}" rel="stylesheet">
     <!-- Plugin Custom Styles -->
-    <link href="/plugins/public/material-design${verstring}/css/sidenav.css" rel="stylesheet">
-    <!-- Material-design plugin overrides (ensure alternating table row colors in dark/light modes) -->
-    <link href="/plugins/public/material-design${verstring}/css/table-rows.css" rel="stylesheet">
+    <link href="/plugins/public/material-design${verstring}/css/custom.css" rel="stylesheet">
     ${headersInHead(headers)}
     <style>
     :root,
