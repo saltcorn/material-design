@@ -377,5 +377,7 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
     }
 
 a.nav-link-btn {
-    margin-top: .1rem !important;
+    margin-top: 0.175rem !important;
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 }
