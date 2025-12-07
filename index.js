@@ -1450,7 +1450,13 @@ const horizontal_header_sections = (
                 },
                 a(
                   {
-                    class: ["nav-link js-scroll-trigger", item.style || ""],
+                    class: [
+                      !(item.style || "").includes("btn")
+                        ? "nav-link"
+                        : "nav-link-btn",
+                      "js-scroll-trigger",
+                      item.style || "",
+                    ],
                     href: text(item.link || "#"),
                     ...(item.tooltip
                       ? {
