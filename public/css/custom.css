@@ -131,3 +131,247 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
 .table-sm > :not(caption) > * > * {
   padding: 0.5rem 0.5rem;
 }
+
+ .dropdown-menu.dropdown-menu-end {
+      max-width: fit-content;
+    }
+    /* Search component in "Page Configuration" */
+    [data-bs-theme="dark"] input.form-control.bg-light {
+      background-color: var(--mdb-dark) !important;
+      color: var(--mdb-light) !important;
+    }
+    [data-bs-theme="dark"] .css-26l3qy-menu {
+      background-color: var(--mdb-dark) !important;
+      border: 1px solid var(--mdb-dark-border-subtle) !important;
+    }
+    [data-bs-theme="dark"] .css-yt9ioa-option:hover {
+      background-color: #424242 !important;
+      color: var(--mdb-light) !important;
+    }
+    [data-bs-theme="dark"] .css-1n7v3ny-option {
+      background-color: #424242 !important;
+    }
+    [data-bs-theme="dark"] .css-yk16xz-control {
+      background-color: #333;
+      border-color: var(--mdb-dark-border-subtle) !important;
+    }
+    [data-bs-theme="dark"] .css-1pahdxg-control {
+      background-color: #333 !important;
+    }
+    [data-bs-theme="dark"] .css-1uccc91-singleValue {
+      color: #fefefe !important;
+    }
+    [data-bs-theme="dark"] .css-8mmkcg {
+      fill: #ccc !important;
+    }
+    /* Icons selector */
+    [data-bs-theme="dark"] .rfipbtn--default {
+      background-color: var(--mdb-dark);
+      border: 1px solid var(--mdb-dark-border-subtle);
+    }
+    [data-bs-theme="dark"] .rfipbtn--default .rfipbtn__button {
+      border-left: 1px solid var(--mdb-dark-border-subtle);
+      background-color: var(--mdb-dark-bg-subtle);
+      color: #e0e0e0;
+    }
+    [data-bs-theme="dark"] .rfipbtn--default .rfipbtn__button:hover {
+      background-color: var(--mdb-dark-bg-subtle);
+      color: #e0e0e0;
+    }
+    [data-bs-theme="dark"] .rfipbtn--default:active,
+    [data-bs-theme="dark"] .rfipbtn--default:focus {
+      border: 1px solid var(--mdb-primary);
+    }
+    [data-bs-theme="dark"] .rfipdropdown--default {
+      -webkit-box-shadow: 0 15px 24px rgba(0, 0, 0, .22), 0 19px 76px rgba(0, 0, 0, .3);
+      box-shadow: 0 15px 24px rgba(0, 0, 0, .22), 0 19px 76px rgba(0, 0, 0, .3);
+      color: var(--mdb-light);
+      background-color: var(--mdb-dark);
+      border: 1px solid var(--mdb-dark-border-subtle);
+    }
+    [data-bs-theme="dark"] .rfipdropdown--default input, .rfipdropdown--default select {
+      color: var(--mdb-light);
+    }
+    [data-bs-theme="dark"] 
+      .rfipdropdown--default .rfipicons__ibox,
+    [data-bs-theme="dark"] 
+      .rfipdropdown--default .rfipicons__left,
+    [data-bs-theme="dark"] 
+      .rfipdropdown--default .rfipicons__right {
+      background-color: var(--mdb-dark-bg-subtle);
+      border: 1px solid var(--mdb-dark-border-subtle);
+      color: var(--mdb-light);
+    }
+    [data-bs-theme="dark"] 
+      .rfipdropdown--default .rfipicons__ibox:hover,
+    [data-bs-theme="dark"] 
+      .rfipdropdown--default .rfipicons__left:hover,
+    [data-bs-theme="dark"] 
+      .rfipdropdown--default .rfipicons__right:hover {
+      background-color: var(--mdb-dark);
+      color: var(--mdb-light);
+    }
+    [data-bs-theme="dark"] 
+    .rfipbtn--default .rfipbtn__icon {
+      border: 1px solid #6a6a6a;
+      color: var(--mdb-light);
+    }
+    [data-bs-theme="dark"] 
+    .rfipbtn--default .rfipbtn__del {
+      background-color: #6a6a6a;
+    }  
+    [data-bs-theme="dark"] 
+    .rfipbtn--default .rfipbtn__del:hover {
+        background-color: #8e8e8e;
+    }
+    [data-bs-theme="dark"] 
+    .rfipdropdown--default .rfipicons__icon--selected .rfipicons__ibox {
+      background-color: var(--mdb-primary);
+    }
+    /* Layers section single element hover class */
+    [data-bs-theme="dark"]
+    .bpkdMP {
+      background: var(--mdb-dark);
+    }
+    .btn-outline-secondary:disabled, .btn-outline-secondary.disabled, fieldset:disabled .btn-outline-secondary {
+      border-color: var(--mdb-btn-disabled-color) !important;
+    }
+
+    /* RTL Support */
+    [dir="rtl"] .sidenav {
+      right: 0;
+      left: auto;
+      border-right: none;
+      border-left: 1px solid var(--mdb-border-color);
+    }
+    /* RTL: Body margin adjustment for vertical sidebar */
+    [dir="rtl"] body:has(.sidenav) {
+      margin-left: 0;
+      margin-right: 280px;
+    }
+    /* RTL: Search bar border fix */
+    [dir="rtl"] .search-bar input[type="search"]:not(.hasbl) {
+      border-left: 1px solid #95a5a6;
+      border-right: none;
+    }
+    [dir="rtl"] .search-bar button.search-bar {
+      border-right: 1px solid #95a5a6 !important;
+      border-left: none !important;
+    }
+    [dir="rtl"] .offcanvas-start {
+      right: 0;
+      left: auto;
+      border-right: none;
+      border-left: var(--mdb-offcanvas-border-width) solid var(--mdb-offcanvas-border-color);
+      transform: translateX(100%);
+    }
+    [dir="rtl"] .offcanvas-start.showing, [dir="rtl"] .offcanvas-start.show {
+      transform: none;
+    }
+    /* RTL: Remove margin on mobile */
+    @media screen and (max-width: 992px) {
+      [dir="rtl"] body:has(.sidenav) {
+        margin-right: 0;
+      }
+    }
+    [dir="rtl"] .dropdown-menu {
+      text-align: right;
+    }
+    [dir="rtl"] .form-check {
+      padding-right: 1.5em;
+      padding-left: 0;
+    }
+    [dir="rtl"] .form-check-input {
+      float: right;
+      margin-right: -1.5em;
+      margin-left: 0;
+    }
+    [dir="rtl"] .form-switch .form-check-input {
+      margin-right: -2.5em;
+    }
+   
+    /* Fixed-top navbar becomes overlay if first section is full-width */
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar.fixed-top,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar.fixed-top {
+      background: transparent;
+      box-shadow: none !important;
+    }
+
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar.fixed-top.scrolled,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar.fixed-top.scrolled {
+      backdrop-filter: blur(2px);
+    }
+
+    /* Navbar becomes overlay automatically if first section is full-width and navbar not fixed */
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar:not(.fixed-top),
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar:not(.fixed-top) {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 1050;
+      background: transparent;
+      box-shadow: none !important;
+    }
+    /* Scroll state */
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar:not(.fixed-top).scrolled,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar:not(.fixed-top).scrolled {
+      backdrop-filter: blur(2px);
+    }
+
+    /* Fixed-top full-width overlay (no box-shadow before scroll) */
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar.fixed-top.navbar-fw-first,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar.fixed-top.navbar-fw-first {
+      background: transparent;
+      box-shadow: none !important;
+    }
+
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar.fixed-top.navbar-fw-first.scrolled,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar.fixed-top.navbar-fw-first.scrolled {
+      backdrop-filter: blur(2px);
+    }
+
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar:not(.fixed-top).navbar-fw-first,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar:not(.fixed-top).navbar-fw-first {
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 1050;
+      background: transparent;
+      box-shadow: none !important;
+    }
+
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child) .navbar:not(.fixed-top).navbar-fw-first.scrolled,
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child) .navbar:not(.fixed-top).navbar-fw-first.scrolled {
+      backdrop-filter: blur(2px);
+    }
+
+    /* Transparent variants (initial state before scroll) */
+    .navbar.transparent-dark:not(.scrolled),
+    .navbar.navbar-fw-first.transparent-dark:not(.scrolled) {
+      background: transparent !important;
+    }
+    
+    /* Ensure toggler icon (if any) contrasts */
+    .navbar.transparent-dark:not(.scrolled) .navbar-toggler {
+      border-color: rgba(255,255,255,.4);
+    }
+    .navbar.transparent-dark:not(.scrolled) .navbar-toggler-icon {
+      filter: invert(1) brightness(1.2);
+    }
+      
+    /* fixed-top stays fixed; only non fixed-top made absolute */
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child)
+      .navbar.fixed-top.navbar-fw-first:not(.scrolled),
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child)
+      .navbar.fixed-top.navbar-fw-first:not(.scrolled) {
+      background: transparent;
+      box-shadow: none !important;
+    }
+    body:has(section.page-section.fw-check:first-of-type > .container > .full-page-width:first-child)
+      .navbar:not(.fixed-top).navbar-fw-first:not(.scrolled),
+    body:has(section.page-section.fw-check:first-of-type > .container-fluid > .full-page-width:first-child)
+      .navbar:not(.fixed-top).navbar-fw-first:not(.scrolled) {
+      background: transparent;
+      box-shadow: none !important;
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      z-index: 1050;
+    }
