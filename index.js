@@ -568,7 +568,15 @@ const renderBody = (title, body, alerts, config, role, req) =>
     alerts,
   });
 
-const wrapIt = (config, bodyAttr, headers, title, body, req) => {
+const wrapIt = (
+  config,
+  bodyAttr,
+  headers,
+  title,
+  body,
+  req,
+  requestFluidLayout
+) => {
   const primary =
     (config?.mode === "light"
       ? config?.primary_color_light
@@ -970,7 +978,7 @@ const wrapIt = (config, bodyAttr, headers, title, body, req) => {
     <title>${text(title)}</title>
   </head>
   <body ${bodyAttr} class="${config.mode === "dark" ? "bg-dark" : ""} ${
-    config.fluid ? "fluid" : ""
+    config.fluid || requestFluidLayout ? "fluid" : ""
   } ${config.fixedTop ? "fixed-top-layout" : "no-fixed-top-layout"} ${
     config.layout_style === "Vertical" ? "layout-vertical" : "layout-horizontal"
   }">
@@ -1323,6 +1331,7 @@ const layout = (config) => ({
     headers,
     role,
     req,
+    requestFluidLayout,
   }) =>
     wrapIt(
       config,
@@ -1332,16 +1341,28 @@ const layout = (config) => ({
       `
       <div id="wrapper">
       ${header_sections(brand, menu, currentUrl, config, req?.user, title)}
-        <div class="${config.fluid ? "container-fluid" : "container-xl"}">
+        <div class="${
+          config.fluid || requestFluidLayout
+            ? "container-fluid"
+            : "container-xl"
+        }">
           <div class="row">
             <div class="col-sm-12" id="page-inner-content">
-              ${renderBody(title, body, alerts, config, role, req)}
+              ${renderBody(
+                title,
+                body,
+                alerts,
+                requestFluidLayout ? { ...config, fluid: true } : config,
+                role,
+                req
+              )}
             </div>
           </div>
         </div>
     </div>
     `,
-      req
+      req,
+      requestFluidLayout
     ),
   renderBody: ({ title, body, alerts, role, req }) =>
     renderBody(title, body, alerts, config, role, req),
