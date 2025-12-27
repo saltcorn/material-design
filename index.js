@@ -1766,7 +1766,9 @@ module.exports = {
         await dbUser.update({ _attributes: attrs });
         await db.commitAndBeginNewTransaction?.();
         await getState().refreshUserLayouts?.();
+        await new Promise((resolve) => setTimeout(resolve, 500));
         await dbUser.relogin(req);
+        await new Promise((resolve) => setTimeout(resolve, 500));
         return { reload_page: true };
       },
     },
