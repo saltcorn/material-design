@@ -25,18 +25,18 @@
 }
 
 .sidenav .nav .nav-link {
-  --mdb-nav-link-color: var(--mdb-secondary-text-emphasis);
+  --bs-nav-link-color: var(--bs-secondary-text-emphasis);
   font-size: 0.89rem;
   border-radius: 0.25rem;
   margin: 2px 0;
 }
 
 .sidenav .nav-link:hover {
-  background-color: var(--mdb-highlight-bg-color);
+  background-color: var(--bs-highlight-bg-color);
 }
 
 .sidenav .nav-link.active {
-  background-color: var(--mdb-primary-bg-subtle);
+  background-color: var(--bs-primary-bg-subtle);
 }
 
 .sidenav .nav-item:has(.collapse) > .nav-link.active,
@@ -50,11 +50,11 @@
 }
 
 .sidenav .nav-item:not(:has(.collapse)) > .nav-link.active {
-  background-color: var(--mdb-primary-bg-subtle) !important;
+  background-color: var(--bs-primary-bg-subtle) !important;
 }
 
 .sidenav .nav .nav .nav-link {
-  --mdb-nav-link-color: var(--mdb-secondary-text-emphasis);
+  --bs-nav-link-color: var(--bs-secondary-text-emphasis);
   font-size: 0.78rem;
   padding: 0.4rem 2rem;
   margin: 2px 0;
@@ -68,7 +68,7 @@
 }
 
 .sidenav .nav .nav .nav .nav-link.active {
-  background-color: var(--mdb-primary-bg-subtle);
+  background-color: var(--bs-primary-bg-subtle);
 }
 
 .sidenav .nav .nav .nav .nav .nav-link {
@@ -91,15 +91,15 @@
 .sidenav-light .navbar-toggler-icon,
 .navbar-dark .navbar-toggler-icon,
 .sidenav-dark .navbar-toggler-icon {
-  --mdb-navbar-toggler-icon-bg: unset;
-  background-image: var(--mdb-navbar-toggler-icon-bg);
+  --bs-navbar-toggler-icon-bg: unset;
+  background-image: var(--bs-navbar-toggler-icon-bg);
 }
 
 body:has(.sidenav) {
   margin-left: 280px;
 }
 .offcanvas:has(.sidenav) {
-  --mdb-offcanvas-width: 280px;
+  --bs-offcanvas-width: 280px;
 }
 
 @media screen and (max-width: 992px) {
@@ -111,14 +111,14 @@ body:has(.sidenav) {
 /* table-rows */
 
 .table> tbody > tr:nth-of-type(odd) > * {
-  background-color: var(--mdb-table-striped-bg, #00000005);
-  color: var(--mdb-table-striped-color, inherit);
+  background-color: var(--bs-table-striped-bg, #00000005);
+  color: var(--bs-table-striped-color, inherit);
 }
 
 [data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > *,
 html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
   background-color: #424242;
-  color: var(--mdb-table-striped-color, inherit);
+  color: var(--bs-table-striped-color, inherit);
 }
 
 .table-hover > tbody > tr:hover > * {
@@ -137,23 +137,23 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
     }
     /* Search component in "Page Configuration" */
     [data-bs-theme="dark"] input.form-control.bg-light {
-      background-color: var(--mdb-dark) !important;
-      color: var(--mdb-light) !important;
+      background-color: var(--bs-dark) !important;
+      color: var(--bs-light) !important;
     }
     [data-bs-theme="dark"] .css-26l3qy-menu {
-      background-color: var(--mdb-dark) !important;
-      border: 1px solid var(--mdb-dark-border-subtle) !important;
+      background-color: var(--bs-dark) !important;
+      border: 1px solid var(--bs-dark-border-subtle) !important;
     }
     [data-bs-theme="dark"] .css-yt9ioa-option:hover {
       background-color: #424242 !important;
-      color: var(--mdb-light) !important;
+      color: var(--bs-light) !important;
     }
     [data-bs-theme="dark"] .css-1n7v3ny-option {
       background-color: #424242 !important;
     }
     [data-bs-theme="dark"] .css-yk16xz-control {
       background-color: #333;
-      border-color: var(--mdb-dark-border-subtle) !important;
+      border-color: var(--bs-dark-border-subtle) !important;
     }
     [data-bs-theme="dark"] .css-1pahdxg-control {
       background-color: #333 !important;
@@ -166,31 +166,31 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
     }
     /* Icons selector */
     [data-bs-theme="dark"] .rfipbtn--default {
-      background-color: var(--mdb-dark);
-      border: 1px solid var(--mdb-dark-border-subtle);
+      background-color: var(--bs-dark);
+      border: 1px solid var(--bs-dark-border-subtle);
     }
     [data-bs-theme="dark"] .rfipbtn--default .rfipbtn__button {
-      border-left: 1px solid var(--mdb-dark-border-subtle);
-      background-color: var(--mdb-dark-bg-subtle);
+      border-left: 1px solid var(--bs-dark-border-subtle);
+      background-color: var(--bs-dark-bg-subtle);
       color: #e0e0e0;
     }
     [data-bs-theme="dark"] .rfipbtn--default .rfipbtn__button:hover {
-      background-color: var(--mdb-dark-bg-subtle);
+      background-color: var(--bs-dark-bg-subtle);
       color: #e0e0e0;
     }
     [data-bs-theme="dark"] .rfipbtn--default:active,
     [data-bs-theme="dark"] .rfipbtn--default:focus {
-      border: 1px solid var(--mdb-primary);
+      border: 1px solid var(--bs-primary);
     }
     [data-bs-theme="dark"] .rfipdropdown--default {
       -webkit-box-shadow: 0 15px 24px rgba(0, 0, 0, .22), 0 19px 76px rgba(0, 0, 0, .3);
       box-shadow: 0 15px 24px rgba(0, 0, 0, .22), 0 19px 76px rgba(0, 0, 0, .3);
-      color: var(--mdb-light);
-      background-color: var(--mdb-dark);
-      border: 1px solid var(--mdb-dark-border-subtle);
+      color: var(--bs-light);
+      background-color: var(--bs-dark);
+      border: 1px solid var(--bs-dark-border-subtle);
     }
     [data-bs-theme="dark"] .rfipdropdown--default input, .rfipdropdown--default select {
-      color: var(--mdb-light);
+      color: var(--bs-light);
     }
     [data-bs-theme="dark"] 
       .rfipdropdown--default .rfipicons__ibox,
@@ -198,9 +198,9 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
       .rfipdropdown--default .rfipicons__left,
     [data-bs-theme="dark"] 
       .rfipdropdown--default .rfipicons__right {
-      background-color: var(--mdb-dark-bg-subtle);
-      border: 1px solid var(--mdb-dark-border-subtle);
-      color: var(--mdb-light);
+      background-color: var(--bs-dark-bg-subtle);
+      border: 1px solid var(--bs-dark-border-subtle);
+      color: var(--bs-light);
     }
     [data-bs-theme="dark"] 
       .rfipdropdown--default .rfipicons__ibox:hover,
@@ -208,13 +208,13 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
       .rfipdropdown--default .rfipicons__left:hover,
     [data-bs-theme="dark"] 
       .rfipdropdown--default .rfipicons__right:hover {
-      background-color: var(--mdb-dark);
-      color: var(--mdb-light);
+      background-color: var(--bs-dark);
+      color: var(--bs-light);
     }
     [data-bs-theme="dark"] 
     .rfipbtn--default .rfipbtn__icon {
       border: 1px solid #6a6a6a;
-      color: var(--mdb-light);
+      color: var(--bs-light);
     }
     [data-bs-theme="dark"] 
     .rfipbtn--default .rfipbtn__del {
@@ -226,15 +226,15 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
     }
     [data-bs-theme="dark"] 
     .rfipdropdown--default .rfipicons__icon--selected .rfipicons__ibox {
-      background-color: var(--mdb-primary);
+      background-color: var(--bs-primary);
     }
     /* Layers section single element hover class */
     [data-bs-theme="dark"]
     .bpkdMP {
-      background: var(--mdb-dark);
+      background: var(--bs-dark);
     }
     .btn-outline-secondary:disabled, .btn-outline-secondary.disabled, fieldset:disabled .btn-outline-secondary {
-      border-color: var(--mdb-btn-disabled-color) !important;
+      border-color: var(--bs-btn-disabled-color) !important;
     }
 
     /* RTL Support */
@@ -242,7 +242,7 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
       right: 0;
       left: auto;
       border-right: none;
-      border-left: 1px solid var(--mdb-border-color);
+      border-left: 1px solid var(--bs-border-color);
     }
     /* RTL: Body margin adjustment for vertical sidebar */
     [dir="rtl"] body:has(.sidenav) {
@@ -262,7 +262,7 @@ html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
       right: 0;
       left: auto;
       border-right: none;
-      border-left: var(--mdb-offcanvas-border-width) solid var(--mdb-offcanvas-border-color);
+      border-left: var(--bs-offcanvas-border-width) solid var(--bs-offcanvas-border-color);
       transform: translateX(100%);
     }
     [dir="rtl"] .offcanvas-start.showing, [dir="rtl"] .offcanvas-start.show {

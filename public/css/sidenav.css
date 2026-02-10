@@ -23,18 +23,18 @@
 }
 
 .sidenav .nav .nav-link {
-  --mdb-nav-link-color: var(--mdb-secondary-text-emphasis);
+  --bs-nav-link-color: var(--bs-secondary-text-emphasis);
   font-size: 0.89rem;
   border-radius: 0.25rem;
   margin: 2px 0;
 }
 
 .sidenav .nav-link:hover {
-  background-color: var(--mdb-highlight-bg-color);
+  background-color: var(--bs-highlight-bg-color);
 }
 
 .sidenav .nav-link.active {
-  background-color: var(--mdb-primary-bg-subtle);
+  background-color: var(--bs-primary-bg-subtle);
 }
 
 .sidenav .nav-item:has(.collapse) > .nav-link.active,
@@ -48,11 +48,11 @@
 }
 
 .sidenav .nav-item:not(:has(.collapse)) > .nav-link.active {
-  background-color: var(--mdb-primary-bg-subtle) !important;
+  background-color: var(--bs-primary-bg-subtle) !important;
 }
 
 .sidenav .nav .nav .nav-link {
-  --mdb-nav-link-color: var(--mdb-secondary-text-emphasis);
+  --bs-nav-link-color: var(--bs-secondary-text-emphasis);
   font-size: 0.78rem;
   padding: 0.4rem 2rem;
   margin: 2px 0;
@@ -66,7 +66,7 @@
 }
 
 .sidenav .nav .nav .nav .nav-link.active {
-  background-color: var(--mdb-primary-bg-subtle);
+  background-color: var(--bs-primary-bg-subtle);
 }
 
 .sidenav .nav .nav .nav .nav .nav-link {
@@ -89,15 +89,15 @@
 .sidenav-light .navbar-toggler-icon,
 .navbar-dark .navbar-toggler-icon,
 .sidenav-dark .navbar-toggler-icon {
-  --mdb-navbar-toggler-icon-bg: unset;
-  background-image: var(--mdb-navbar-toggler-icon-bg);
+  --bs-navbar-toggler-icon-bg: unset;
+  background-image: var(--bs-navbar-toggler-icon-bg);
 }
 
 body:has(.sidenav) {
   margin-left: 280px;
 }
 .offcanvas:has(.sidenav) {
-  --mdb-offcanvas-width: 280px;
+  --bs-offcanvas-width: 280px;
 }
 
 @media screen and (max-width: 992px) {
