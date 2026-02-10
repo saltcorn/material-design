@@ -1,12 +1,12 @@
 .table> tbody > tr:nth-of-type(odd) > * {
-  background-color: var(--mdb-table-striped-bg, #00000005);
-  color: var(--mdb-table-striped-color, inherit);
+  background-color: var(--bs-table-striped-bg, #00000005);
+  color: var(--bs-table-striped-color, inherit);
 }
 
 [data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > *,
 html[data-bs-theme="dark"] .table> tbody > tr:nth-of-type(odd) > * {
   background-color: #424242;
-  color: var(--mdb-table-striped-color, inherit);
+  color: var(--bs-table-striped-color, inherit);
 }
 
 .table-hover > tbody > tr:hover > * {

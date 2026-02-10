@@ -618,94 +618,94 @@ const wrapIt = (
     <style>
     :root,
     [data-bs-theme="light"] {
-      --mdb-primary: ${primary};
-      --mdb-secondary: ${secondary};
-      --mdb-primary-rgb: ${primary_rgb};
-      --mdb-secondary-rgb: ${secondary_rgb};
-      --mdb-link-hover-color: ${link_cover_color};
-      --mdb-link-color-rgb: ${primary_rgb};
-      --mdb-link-hover-color-rgb: ${link_cover_color};
-      --mdb-primary-text-emphasis: ${adjustColor(primary, { l: -10 })};
-      --mdb-primary-bg-subtle: ${adjustColor(primary, { l: +25 })};
+      --bs-primary: ${primary};
+      --bs-secondary: ${secondary};
+      --bs-primary-rgb: ${primary_rgb};
+      --bs-secondary-rgb: ${secondary_rgb};
+      --bs-link-hover-color: ${link_cover_color};
+      --bs-link-color-rgb: ${primary_rgb};
+      --bs-link-hover-color-rgb: ${link_cover_color};
+      --bs-primary-text-emphasis: ${adjustColor(primary, { l: -10 })};
+      --bs-primary-bg-subtle: ${adjustColor(primary, { l: +25 })};
     }
     [data-bs-theme="dark"] {
-      --mdb-primary: ${primary};
-      --mdb-secondary: ${secondary};
-      --mdb-btn-color: ${mdb_btn_color};
-      --mdb-link-hover-color: ${link_cover_color};
-      --mdb-link-hover-color-rgb: ${link_cover_color};
-      --mdb-secondary-text-emphasis: ${adjustColor(primary, { l: +65 })};
+      --bs-primary: ${primary};
+      --bs-secondary: ${secondary};
+      --bs-btn-color: ${mdb_btn_color};
+      --bs-link-hover-color: ${link_cover_color};
+      --bs-link-hover-color-rgb: ${link_cover_color};
+      --bs-secondary-text-emphasis: ${adjustColor(primary, { l: +65 })};
     }
     .btn-primary {
-      --mdb-btn-hover-bg: ${link_cover_color};
-      --mdb-btn-active-bg: ${link_cover_color};
-      --mdb-btn-focus-bg: ${link_cover_color};
+      --bs-btn-hover-bg: ${link_cover_color};
+      --bs-btn-active-bg: ${link_cover_color};
+      --bs-btn-focus-bg: ${link_cover_color};
     }
     .btn-outline-primary {
-      --mdb-btn-hover-bg: ${adjustColor(primary, { a: 0.1 })};
-      --mdb-btn-hover-color: ${adjustColor(primary, { l: -5 })};
-      --mdb-btn-focus-bg: ${adjustColor(primary, { l: +42 })};  
-      --mdb-btn-focus-color: ${adjustColor(primary, { l: -5 })};
-      --mdb-btn-active-bg: ${adjustColor(primary, { l: +42 })}; 
-      --mdb-btn-active-color: ${adjustColor(primary, { l: -8 })};
-      --mdb-btn-outline-focus-border-color: ${adjustColor(primary, { l: -10 })};
-      --mdb-btn-outline-hover-border-color: ${adjustColor(primary, { l: -10 })};
+      --bs-btn-hover-bg: ${adjustColor(primary, { a: 0.1 })};
+      --bs-btn-hover-color: ${adjustColor(primary, { l: -5 })};
+      --bs-btn-focus-bg: ${adjustColor(primary, { l: +42 })};  
+      --bs-btn-focus-color: ${adjustColor(primary, { l: -5 })};
+      --bs-btn-active-bg: ${adjustColor(primary, { l: +42 })}; 
+      --bs-btn-active-color: ${adjustColor(primary, { l: -8 })};
+      --bs-btn-outline-focus-border-color: ${adjustColor(primary, { l: -10 })};
+      --bs-btn-outline-hover-border-color: ${adjustColor(primary, { l: -10 })};
     }
     [data-bs-theme="dark"] .btn-outline-primary {
-      --mdb-btn-color: ${adjustColor(primary, { l: +15 })};
-      --mdb-btn-hover-bg: ${adjustColor(primary, { l: -20, a: 0.9 })};
-      --mdb-btn-hover-color: var(--mdb-btn-color);
-      --mdb-btn-focus-bg: ${adjustColor(primary, { l: -50 })};
-      --mdb-btn-focus-color: ${adjustColor(primary, { l: -5 })};
-      --mdb-btn-active-bg: ${adjustColor(primary, { l: -50 })};
-      --mdb-btn-active-color: ${adjustColor(primary, { l: -8 })};
-      --mdb-btn-outline-hover-border-color: ${primary};
+      --bs-btn-color: ${adjustColor(primary, { l: +15 })};
+      --bs-btn-hover-bg: ${adjustColor(primary, { l: -20, a: 0.9 })};
+      --bs-btn-hover-color: var(--bs-btn-color);
+      --bs-btn-focus-bg: ${adjustColor(primary, { l: -50 })};
+      --bs-btn-focus-color: ${adjustColor(primary, { l: -5 })};
+      --bs-btn-active-bg: ${adjustColor(primary, { l: -50 })};
+      --bs-btn-active-color: ${adjustColor(primary, { l: -8 })};
+      --bs-btn-outline-hover-border-color: ${primary};
     }
     .btn-secondary {
-      --mdb-btn-bg: ${adjustColor(secondary)};
-      --mdb-btn-hover-bg: ${adjustColor(secondary, { l: +2 })};
-      --mdb-btn-focus-bg: ${adjustColor(secondary, { l: +2 })};
-      --mdb-btn-active-bg: ${adjustColor(secondary, { l: +2 })};
-      --mdb-btn-color: ${adjustColor(secondary, { l: -50 })};
-      --mdb-btn-hover-color: ${adjustColor(secondary, { l: -40 })};
-      --mdb-btn-focus-color: ${adjustColor(secondary, { l: -40 })};
-      --mdb-btn-active-color: ${adjustColor(secondary, { l: -40 })};
+      --bs-btn-bg: ${adjustColor(secondary)};
+      --bs-btn-hover-bg: ${adjustColor(secondary, { l: +2 })};
+      --bs-btn-focus-bg: ${adjustColor(secondary, { l: +2 })};
+      --bs-btn-active-bg: ${adjustColor(secondary, { l: +2 })};
+      --bs-btn-color: ${adjustColor(secondary, { l: -50 })};
+      --bs-btn-hover-color: ${adjustColor(secondary, { l: -40 })};
+      --bs-btn-focus-color: ${adjustColor(secondary, { l: -40 })};
+      --bs-btn-active-color: ${adjustColor(secondary, { l: -40 })};
     }
     [data-bs-theme=dark] .btn-secondary {
-      --mdb-btn-bg: ${adjustColor(secondary)};
-      --mdb-btn-hover-bg: ${adjustColor(secondary, { l: +5 })};
-      --mdb-btn-focus-bg: ${adjustColor(secondary, { l: +5 })};
-      --mdb-btn-active-bg: ${adjustColor(secondary, { l: +5 })};
+      --bs-btn-bg: ${adjustColor(secondary)};
+      --bs-btn-hover-bg: ${adjustColor(secondary, { l: +5 })};
+      --bs-btn-focus-bg: ${adjustColor(secondary, { l: +5 })};
+      --bs-btn-active-bg: ${adjustColor(secondary, { l: +5 })};
     }
     [data-bs-theme="light"] .btn-outline-secondary {
-      --mdb-btn-color: ${adjustColor(secondary, { l: -20 })};
-      --mdb-btn-hover-bg: ${adjustColor(secondary, { a: 0.1 })};
-      --mdb-btn-hover-color: ${adjustColor(secondary, { l: -15 })};
-      --mdb-btn-focus-bg: ${adjustColor(secondary, { a: 0.1 })};
-      --mdb-btn-focus-color: ${adjustColor(secondary, { l: -15 })};
-      --mdb-btn-active-bg: ${adjustColor(secondary, { a: 0.1 })};
-      --mdb-btn-active-color: ${adjustColor(secondary, { l: -15 })};
-      --mdb-btn-outline-border-color: ${secondary};
-      --mdb-btn-outline-focus-border-color: ${adjustColor(secondary, {
+      --bs-btn-color: ${adjustColor(secondary, { l: -20 })};
+      --bs-btn-hover-bg: ${adjustColor(secondary, { a: 0.1 })};
+      --bs-btn-hover-color: ${adjustColor(secondary, { l: -15 })};
+      --bs-btn-focus-bg: ${adjustColor(secondary, { a: 0.1 })};
+      --bs-btn-focus-color: ${adjustColor(secondary, { l: -15 })};
+      --bs-btn-active-bg: ${adjustColor(secondary, { a: 0.1 })};
+      --bs-btn-active-color: ${adjustColor(secondary, { l: -15 })};
+      --bs-btn-outline-border-color: ${secondary};
+      --bs-btn-outline-focus-border-color: ${adjustColor(secondary, {
         l: -2,
       })};
-      --mdb-btn-outline-hover-border-color: ${adjustColor(secondary, {
+      --bs-btn-outline-hover-border-color: ${adjustColor(secondary, {
         l: -2,
       })};
-      --mdb-btn-active-border-color: ${adjustColor(secondary, { l: -5 })};
+      --bs-btn-active-border-color: ${adjustColor(secondary, { l: -5 })};
     }
     [data-bs-theme="dark"] .btn-outline-secondary {
-      --mdb-btn-color: ${secondary};
-      --mdb-btn-hover-bg: ${adjustColor(secondary, { l: -10, a: 0.1 })};
-      --mdb-btn-hover-color: ${adjustColor(secondary, { l: -2 })};
-      --mdb-btn-focus-bg: ${adjustColor(secondary, { l: -10, a: 0.1 })};
-      --mdb-btn-focus-color: ${adjustColor(secondary, { l: -2 })};
-      --mdb-btn-active-bg: ${adjustColor(secondary, { l: -10, a: 0.1 })};
-      --mdb-btn-active-color: ${adjustColor(secondary, { l: -2 })};
-      --mdb-btn-outline-border-color: ${secondary};
-      --mdb-btn-outline-focus-border-color: ${adjustColor(secondary)};
-      --mdb-btn-outline-hover-border-color: ${adjustColor(secondary)};
-      --mdb-btn-active-border-color: ${adjustColor(secondary, { l: +25 })};
+      --bs-btn-color: ${secondary};
+      --bs-btn-hover-bg: ${adjustColor(secondary, { l: -10, a: 0.1 })};
+      --bs-btn-hover-color: ${adjustColor(secondary, { l: -2 })};
+      --bs-btn-focus-bg: ${adjustColor(secondary, { l: -10, a: 0.1 })};
+      --bs-btn-focus-color: ${adjustColor(secondary, { l: -2 })};
+      --bs-btn-active-bg: ${adjustColor(secondary, { l: -10, a: 0.1 })};
+      --bs-btn-active-color: ${adjustColor(secondary, { l: -2 })};
+      --bs-btn-outline-border-color: ${secondary};
+      --bs-btn-outline-focus-border-color: ${adjustColor(secondary)};
+      --bs-btn-outline-hover-border-color: ${adjustColor(secondary)};
+      --bs-btn-active-border-color: ${adjustColor(secondary, { l: +25 })};
     }
     
     section.page-section.fw-check:first-child:has(> .container > .full-page-width:first-child),
