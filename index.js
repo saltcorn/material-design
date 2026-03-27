@@ -66,7 +66,7 @@ const active = (currentUrl, item) => {
 const horizontalLineItem = (classes = []) =>
   div(
     { class: ["w-100 flex-shrink-0", ...classes] },
-    hr({ class: ["hr my-1"] })
+    hr({ class: ["hr my-1"] }),
   );
 
 const verticalUserSubItem = (currentUrl, config) => {
@@ -93,7 +93,7 @@ const verticalUserSubItem = (currentUrl, config) => {
               item.icon !== "empty" &&
               item.icon !== "undefined" &&
               i({ class: `fa-fw me-1 ${item.icon}` }),
-            item.label
+            item.label,
           )
         : span({ class: "dropdown-header" }, item.label);
     }
@@ -111,14 +111,14 @@ const verticalUserSubItem = (currentUrl, config) => {
           "data-mdb-dropdown-initialized": "true",
           "data-bs-dropdown-initialized": "true",
         },
-        item.label
+        item.label,
       ),
       ul(
         { class: "dropdown-menu hover-dropdown-menu" },
         item.subitems.map((subitem, subsubIx) =>
-          li(renderNestedDropdown(subitem, `${parentId}_${subIx}`, subsubIx))
-        )
-      )
+          li(renderNestedDropdown(subitem, `${parentId}_${subIx}`, subsubIx)),
+        ),
+      ),
     );
   };
 
@@ -154,7 +154,7 @@ const verticalSubItem =
                   style: "width: 16px; height: 16px;",
                 })
               : "",
-            item.label
+            item.label,
           )
         : span(
             {
@@ -163,8 +163,8 @@ const verticalSubItem =
                 active(currentUrl, item) && "active",
               ],
             },
-            text(item.label)
-          )
+            text(item.label),
+          ),
     );
 
     return li(
@@ -189,7 +189,7 @@ const verticalSubItem =
                     i({
                       class: `fa-fw ${item.icon} object-fit-contain`,
                       style: "width: 16px; height: 16px;",
-                    })
+                    }),
                   )
                 : "",
               item.label,
@@ -199,8 +199,8 @@ const verticalSubItem =
                 },
                 i({
                   class: "sidenav-collapse-icon fas fa-chevron-down fa-sm",
-                })
-              )
+                }),
+              ),
             ),
             div(
               {
@@ -214,33 +214,36 @@ const verticalSubItem =
                   class: "nav w-100 d-flex flex-column",
                   style: "padding-left: 1rem;",
                 },
-                item.subitems.map(verticalSubItem(currentUrl, itemId))
-              )
+                item.subitems.map(verticalSubItem(currentUrl, itemId)),
+              ),
             ),
           ]
         : item.link
-        ? a(
-            {
-              class: ["nav-link ripple", active(currentUrl, item) && "active"],
-              href: text(item.link),
-              "data-mdb-placement": "right",
-              "data-bs-toggle": "tooltip",
-              title: item.tooltip,
-            },
-            item.icon && item.icon !== "empty" && item.icon !== "undefined"
-              ? i({
-                  class: `me-2 fa-fw ${item.icon} object-fit-contain`,
-                  style: "width: 16px; height: 16px;",
-                })
-              : "",
-            item.label
-          )
-        : span(
-            {
-              class: ["nav-link m-0", active(currentUrl, item) && "active"],
-            },
-            text(item.label)
-          )
+          ? a(
+              {
+                class: [
+                  "nav-link ripple",
+                  active(currentUrl, item) && "active",
+                ],
+                href: text(item.link),
+                "data-mdb-placement": "right",
+                "data-bs-toggle": "tooltip",
+                title: item.tooltip,
+              },
+              item.icon && item.icon !== "empty" && item.icon !== "undefined"
+                ? i({
+                    class: `me-2 fa-fw ${item.icon} object-fit-contain`,
+                    style: "width: 16px; height: 16px;",
+                  })
+                : "",
+              item.label,
+            )
+          : span(
+              {
+                class: ["nav-link m-0", active(currentUrl, item) && "active"],
+              },
+              text(item.label),
+            ),
     );
   };
 const verticalSideBarItem =
@@ -271,14 +274,14 @@ const verticalSideBarItem =
             style: `background-image: url(/files/resize/64/64/${
               user?.[config.avatar_file]
             })`,
-          })
+          }),
         ),
         ul(
           {
             class: ["dropdown-menu", ix === nitems - 1 && "dropdown-menu-end"],
           },
-          item.subitems.map(verticalUserSubItem(currentUrl, config))
-        )
+          item.subitems.map(verticalUserSubItem(currentUrl, config)),
+        ),
       );
     } else if (item.isUser && user?.email) {
       return li(
@@ -301,15 +304,15 @@ const verticalSideBarItem =
               style:
                 "border-radius: 50%; width: 40px; height:40px; display: flex;align-items: center; justify-content: center;",
             },
-            user.email[0].toUpperCase()
-          )
+            user.email[0].toUpperCase(),
+          ),
         ),
         ul(
           {
             class: ["dropdown-menu", ix === nitems - 1 && "dropdown-menu-end"],
           },
-          item.subitems.map(verticalUserSubItem(currentUrl, config))
-        )
+          item.subitems.map(verticalUserSubItem(currentUrl, config)),
+        ),
       );
     }
     {
@@ -320,113 +323,119 @@ const verticalSideBarItem =
         item.type === "Separator"
           ? horizontalLineItem()
           : item.type === "Search"
-          ? form(
-              {
-                action: "/search",
-                class: "menusearch ms-2",
-                method: "get",
-                autocomplete: "off",
-                novalidate: "",
-              },
-              div(
-                { class: "input-icon" },
-                span(
-                  { class: "input-icon-addon" },
-                  i({ class: "fas fa-search" })
+            ? form(
+                {
+                  action: "/search",
+                  class: "menusearch ms-2",
+                  method: "get",
+                  autocomplete: "off",
+                  novalidate: "",
+                },
+                div(
+                  { class: "input-icon" },
+                  span(
+                    { class: "input-icon-addon" },
+                    i({ class: "fas fa-search" }),
+                  ),
+                  input({
+                    type: "text",
+                    value: "",
+                    class: "form-control",
+                    placeholder: "Search…",
+                    "aria-label": "Search in website",
+                  }),
                 ),
-                input({
-                  type: "text",
-                  value: "",
-                  class: "form-control",
-                  placeholder: "Search…",
-                  "aria-label": "Search in website",
-                })
               )
-            )
-          : item.subitems
-          ? [
-              a(
-                {
-                  class: [
-                    "nav-link d-flex align-items-center ripple",
-                    is_active && "active",
-                  ],
-                  href: "#collapse_item_" + ix,
-                  role: "button",
-                  "data-bs-toggle": "collapse",
-                  "aria-expanded": is_active ? "true" : "false",
-                  "aria-controls": "collapse_item_" + ix,
-                  title: item?.tooltip,
-                },
-                item.icon && item.icon !== "empty" && item.icon !== "undefined"
-                  ? span(
-                      { class: "me-2" },
+            : item.subitems
+              ? [
+                  a(
+                    {
+                      class: [
+                        "nav-link d-flex align-items-center ripple",
+                        is_active && "active",
+                      ],
+                      href: "#collapse_item_" + ix,
+                      role: "button",
+                      "data-bs-toggle": "collapse",
+                      "aria-expanded": is_active ? "true" : "false",
+                      "aria-controls": "collapse_item_" + ix,
+                      title: item?.tooltip,
+                    },
+                    item.icon &&
+                      item.icon !== "empty" &&
+                      item.icon !== "undefined"
+                      ? span(
+                          { class: "me-2" },
+                          i({
+                            class: `fa-fw ${item.icon} object-fit-contain`,
+                            style: "width: 16px; height: 16px;",
+                          }),
+                        )
+                      : "",
+                    item.label,
+                    span(
+                      { class: "ms-auto" },
                       i({
-                        class: `fa-fw ${item.icon} object-fit-contain`,
-                        style: "width: 16px; height: 16px;",
-                      })
-                    )
-                  : "",
-                item.label,
-                span(
-                  { class: "ms-auto" },
-                  i({
-                    class: "sidenav-collapse-icon fas fa-chevron-down fa-sm",
-                  })
-                )
-              ),
-              div(
-                {
-                  class: ["collapse", is_active && "show"],
-                  id: "collapse_item_" + ix,
-                },
-                ul(
-                  { class: "nav w-100 d-flex flex-column" },
-                  item.subitems.map(verticalSubItem(currentUrl, `item_${ix}`))
-                )
-              ),
-            ]
-          : a(
-              {
-                class: [
-                  item.style && item.style.includes("btn")
-                    ? "ms-2"
-                    : "nav-link",
-                  "ripple",
-                  item.style || "",
-                  is_active && "active",
-                ],
-                href: text(item.link),
-                ...(is_active && { "aria-current": "page" }),
-                ...(item.tooltip
-                  ? {
-                      "data-mdb-placement": "right",
-                      "data-bs-toggle": "tooltip",
-                      title: item.tooltip,
-                    }
-                  : {}),
-              },
-              item.icon && item.icon !== "empty" && item.icon !== "undefined"
-                ? span(
-                    { class: "me-2" },
-                    i({
-                      class: `fa-fw ${item.icon} object-fit-contain`,
-                      style: "width: 16px; height: 16px;",
-                    })
-                  )
-                : "",
-              text(item.label)
-            )
+                        class:
+                          "sidenav-collapse-icon fas fa-chevron-down fa-sm",
+                      }),
+                    ),
+                  ),
+                  div(
+                    {
+                      class: ["collapse", is_active && "show"],
+                      id: "collapse_item_" + ix,
+                    },
+                    ul(
+                      { class: "nav w-100 d-flex flex-column" },
+                      item.subitems.map(
+                        verticalSubItem(currentUrl, `item_${ix}`),
+                      ),
+                    ),
+                  ),
+                ]
+              : a(
+                  {
+                    class: [
+                      item.style && item.style.includes("btn")
+                        ? "ms-2"
+                        : "nav-link",
+                      "ripple",
+                      item.style || "",
+                      is_active && "active",
+                    ],
+                    href: text(item.link),
+                    ...(is_active && { "aria-current": "page" }),
+                    ...(item.tooltip
+                      ? {
+                          "data-mdb-placement": "right",
+                          "data-bs-toggle": "tooltip",
+                          title: item.tooltip,
+                        }
+                      : {}),
+                  },
+                  item.icon &&
+                    item.icon !== "empty" &&
+                    item.icon !== "undefined"
+                    ? span(
+                        { class: "me-2" },
+                        i({
+                          class: `fa-fw ${item.icon} object-fit-contain`,
+                          style: "width: 16px; height: 16px;",
+                        }),
+                      )
+                    : "",
+                  text(item.label),
+                ),
       );
     }
   };
 
-const sideBarSection = (currentUrl, config, user) => (section) =>
-  [
-    section.items
-      .map(verticalSideBarItem(currentUrl, config, user, section.items.length))
-      .join(""),
-  ];
+const sideBarSection = (currentUrl, config, user) => (section) => [
+  section.items
+    .map(verticalSideBarItem(currentUrl, config, user, section.items.length))
+    .join(""),
+];
 
 const splitPrimarySecondaryMenu = (menu) => {
   return {
@@ -437,7 +446,7 @@ const splitPrimarySecondaryMenu = (menu) => {
           (item) =>
             item.location !== "Secondary Menu" &&
             mi.section !== "User" &&
-            !mi.isUser
+            !mi.isUser,
         ),
       }))
       .filter(({ items }) => items.length),
@@ -448,7 +457,7 @@ const splitPrimarySecondaryMenu = (menu) => {
           (item) =>
             item.location === "Secondary Menu" ||
             mi.section === "User" ||
-            mi.isUser
+            mi.isUser,
         ),
       }))
       .filter(({ items }) => items.length),
@@ -469,7 +478,7 @@ const showBrand = (brand, config) =>
         width: "32",
         height: "32",
       }),
-    !config?.hide_site_name && brand.name
+    !config?.hide_site_name && brand.name,
   );
 
 const isNode = typeof window === "undefined";
@@ -483,23 +492,23 @@ const blockDispatch = (config) => ({
             config.mode === "dark" ? "light" : "gray-800"
           }`,
         },
-        title
+        title,
       ),
       blurb &&
         p(
           {
             class: `mb-0 text-${config.mode === "dark" ? "light" : "gray-800"}`,
           },
-          blurb
-        )
+          blurb,
+        ),
     ),
   footer: ({ contents }) =>
     div(
       { class: "container-xl" },
       footer(
         { id: "footer" },
-        div({ class: "row" }, div({ class: "col-sm-12" }, contents))
-      )
+        div({ class: "row" }, div({ class: "col-sm-12" }, contents)),
+      ),
     ),
   hero: ({ caption, blurb, cta, backgroundImage }) =>
     section(
@@ -511,14 +520,14 @@ const blockDispatch = (config) => ({
         { class: "container-xl" },
         h1({ class: "jumbotron-heading" }, caption),
         p({ class: "lead" }, blurb),
-        cta
+        cta,
       ),
       backgroundImage &&
         style(`.jumbotron {
         background-image: url("${backgroundImage}");
         background-size: cover;
         min-height: 75vh !important;
-      }`)
+      }`),
     ),
   noBackgroundAtTop: () => true,
   wrapTop: (segment, ix, s) =>
@@ -551,8 +560,8 @@ const blockDispatch = (config) => ({
           },
           div(
             { class: [config.fluid ? "container-fluid" : "container"] },
-            segment.textStyle && segment.textStyle === "h1" ? h1(s) : s
-          )
+            segment.textStyle && segment.textStyle === "h1" ? h1(s) : s,
+          ),
         ),
 });
 
@@ -575,20 +584,20 @@ const wrapIt = (
   title,
   body,
   req,
-  requestFluidLayout
+  requestFluidLayout,
 ) => {
   const primary =
     (config?.mode === "light"
       ? config?.primary_color_light
       : config?.mode === "dark"
-      ? config?.primary_color_dark
-      : config?.primary_color) || "#3b71ca";
+        ? config?.primary_color_dark
+        : config?.primary_color) || "#3b71ca";
   const secondary =
     (config?.mode === "light"
       ? config?.secondary_color_light
       : config?.mode === "dark"
-      ? config?.secondary_color_dark
-      : config?.secondary_color) || "#b1c6ea";
+        ? config?.secondary_color_dark
+        : config?.secondary_color) || "#b1c6ea";
 
   const primary_rgb = hexToRgb(primary);
   const secondary_rgb = hexToRgb(secondary);
@@ -990,7 +999,7 @@ const header_sections = (brand, sections, currentUrl, config, user, title) => {
         secondary,
         currentUrl,
         config,
-        user
+        user,
       );
 
     default: //Horizontal
@@ -1001,7 +1010,7 @@ const header_sections = (brand, sections, currentUrl, config, user, title) => {
         currentUrl,
         config,
         user,
-        title
+        title,
       );
   }
 };
@@ -1012,7 +1021,7 @@ const vertical_sidebar_sections = (
   secondary,
   currentUrl,
   config,
-  user
+  user,
 ) =>
   (brand &&
     a(
@@ -1028,19 +1037,19 @@ const vertical_sidebar_sections = (
           width: "32",
           height: "32",
         }),
-      (!config?.hide_site_name || !brand.logo) && brand.name
+      (!config?.hide_site_name || !brand.logo) && brand.name,
     )) +
   horizontalLineItem() +
   ul(
     {
       class: "nav w-100 flex-column flex-nowrap overflow-y-auto",
     },
-    [...primary].map(sideBarSection(currentUrl, config, user))
+    [...primary].map(sideBarSection(currentUrl, config, user)),
   ) +
   horizontalLineItem(["mt-auto"]) +
   ul(
     { class: "nav w-100 flex-column flex-nowrap" },
-    [...secondary].map(sideBarSection(currentUrl, config, user))
+    [...secondary].map(sideBarSection(currentUrl, config, user)),
   );
 
 const vertical_header_sections = (
@@ -1049,7 +1058,7 @@ const vertical_header_sections = (
   secondary,
   currentUrl,
   config,
-  user
+  user,
 ) =>
   aside(
     {
@@ -1070,8 +1079,8 @@ const vertical_header_sections = (
       secondary,
       currentUrl,
       config,
-      user
-    )
+      user,
+    ),
   ) +
   div(
     { class: ["offcanvas offcanvas-start"], tabindex: "-1", id: "sidebar" },
@@ -1094,9 +1103,9 @@ const vertical_header_sections = (
         secondary,
         currentUrl,
         config,
-        user
-      )
-    )
+        user,
+      ),
+    ),
   ) +
   header(
     {
@@ -1120,14 +1129,14 @@ const vertical_header_sections = (
           "data-bs-toggle": "offcanvas",
           "data-bs-target": "#sidebar",
         },
-        span({ class: "navbar-toggler-icon" })
+        span({ class: "navbar-toggler-icon" }),
       ),
       brand && showBrand(brand, config),
       div(
         { class: "navbar-nav flex-row order-lg-last" },
-        secondary.map(sideBarSection(currentUrl, config, user))
-      )
-    )
+        secondary.map(sideBarSection(currentUrl, config, user)),
+      ),
+    ),
   );
 
 const authBrand = (config, { name, logo }) =>
@@ -1169,7 +1178,7 @@ const layout = (config) => ({
                 alerts,
                 requestFluidLayout ? { ...config, fluid: true } : config,
                 role,
-                req
+                req,
               )}
             </div>
           </div>
@@ -1177,7 +1186,7 @@ const layout = (config) => ({
     </div>
     `,
       req,
-      requestFluidLayout
+      requestFluidLayout,
     ),
   renderBody: ({ title, body, alerts, role, req }) =>
     renderBody(title, body, alerts, config, role, req),
@@ -1258,7 +1267,7 @@ body {
 }
     </style>
   </div>
-  `
+  `,
     ),
 });
 const renderAuthLinks = (authLinks) => {
@@ -1273,8 +1282,8 @@ const renderAuthLinks = (authLinks) => {
       a(
         { href: url, class: "btn btn-secondary btn-user btn-block mb-1" },
         icon || "",
-        `&nbsp;Login with ${label}`
-      )
+        `&nbsp;Login with ${label}`,
+      ),
     )
     .join("");
 
@@ -1290,7 +1299,7 @@ const horizontal_header_sections = (
   currentUrl,
   config,
   user,
-  title
+  title,
 ) => {
   const renderNestedDropdown = (item, parentId, subIx) => {
     if (!item.subitems || !item.subitems.length) {
@@ -1314,7 +1323,7 @@ const horizontal_header_sections = (
           item.icon !== "empty" &&
           item.icon !== "undefined" &&
           i({ class: `fa-fw mr-05 ${item.icon}` }),
-        item.label
+        item.label,
       );
     }
     return div(
@@ -1330,14 +1339,14 @@ const horizontal_header_sections = (
           "data-mdb-dropdown-initialized": "true",
           "data-bs-dropdown-initialized": "true",
         },
-        item.label
+        item.label,
       ),
       ul(
         { class: "dropdown-menu hover-dropdown-menu" },
         item.subitems.map((subitem, subsubIx) =>
-          li(renderNestedDropdown(subitem, `${parentId}_${subIx}`, subsubIx))
-        )
-      )
+          li(renderNestedDropdown(subitem, `${parentId}_${subIx}`, subsubIx)),
+        ),
+      ),
     );
   };
 
@@ -1357,7 +1366,7 @@ const horizontal_header_sections = (
       }),
     },
     div(
-      { class: "container" },
+      { class: config?.fluid ? "container-fluid" : "container" },
       brand &&
         a(
           { class: "navbar-brand js-scroll-trigger", href: "/" },
@@ -1370,7 +1379,7 @@ const horizontal_header_sections = (
                 class: "navbar-brand-image mx-1",
               })
             : "",
-          (!config?.hide_site_name || !brand.logo) && brand.name
+          (!config?.hide_site_name || !brand.logo) && brand.name,
         ),
       button(
         {
@@ -1382,7 +1391,7 @@ const horizontal_header_sections = (
           "aria-expanded": "false",
           "aria-label": "Toggle navigation",
         },
-        span({ class: "navbar-toggler-icon" })
+        span({ class: "navbar-toggler-icon" }),
       ),
 
       div(
@@ -1423,7 +1432,7 @@ const horizontal_header_sections = (
                       item.icon !== "empty" &&
                       item.icon !== "undefined" &&
                       i({ class: `fa-fw mr-05 ${item.icon}` }),
-                    item.label
+                    item.label,
                   ),
                   div(
                     {
@@ -1434,10 +1443,10 @@ const horizontal_header_sections = (
                       renderNestedDropdown(
                         subitem,
                         `dropdown_primary_${ix}`,
-                        subIx
-                      )
-                    )
-                  )
+                        subIx,
+                      ),
+                    ),
+                  ),
                 );
 
               return li(
@@ -1474,8 +1483,8 @@ const horizontal_header_sections = (
                     item.icon !== "empty" &&
                     item.icon !== "undefined" &&
                     i({ class: `fa-fw mr-05 ${item.icon}` }),
-                  item.label
-                )
+                  item.label,
+                ),
               );
             })
             .concat(
@@ -1506,7 +1515,7 @@ const horizontal_header_sections = (
                           item.icon !== "empty" &&
                           item.icon !== "undefined" &&
                           i({ class: `fa-fw mr-05 ${item.icon}` }),
-                        item.label
+                        item.label,
                       ),
                       div(
                         {
@@ -1517,10 +1526,10 @@ const horizontal_header_sections = (
                           renderNestedDropdown(
                             subitem,
                             `dropdown_secondary_${ix}`,
-                            subIx
-                          )
-                        )
-                      )
+                            subIx,
+                          ),
+                        ),
+                      ),
                     );
 
                   return li(
@@ -1537,14 +1546,14 @@ const horizontal_header_sections = (
                         item.icon !== "empty" &&
                         item.icon !== "undefined" &&
                         i({ class: `fa-fw mr-05 ${item.icon}` }),
-                      item.label
-                    )
+                      item.label,
+                    ),
                   );
-                })
-            )
-        )
-      )
-    )
+                }),
+            ),
+        ),
+      ),
+    ),
   );
 };
 
@@ -1758,8 +1767,8 @@ module.exports = {
         const currentMode = userLayout.config.mode
           ? userLayout.config.mode
           : plugin.configuration?.mode
-          ? plugin.configuration.mode
-          : "light";
+            ? plugin.configuration.mode
+            : "light";
         userLayout.config.mode = currentMode === "dark" ? "light" : "dark";
         userLayout.config.is_user_config = true;
         attrs.layout = userLayout;
