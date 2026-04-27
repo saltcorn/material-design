@@ -1349,11 +1349,14 @@ const horizontal_header_sections = (
       ),
     );
   };
-
+  const expand =
+    { none: "", small: "sm", medium: "md", large: "lg" }[
+      config?.navbar_collapse || "medium"
+    ] || "";
   return nav(
     {
       class: [
-        "navbar d-print-none navbar-expand-md",
+        `navbar d-print-none navbar-expand${expand ? `-` + expand : ""}`,
         config?.fixedTop && "fixed-top",
         config?.colorscheme && config.colorscheme.toLowerCase(),
       ],
@@ -1705,6 +1708,16 @@ const configuration_workflow = (config) =>
                   max: 5,
                   min: 0,
                 },
+              },
+              {
+                name: "navbar_collapse",
+                label: "Navbar collapse",
+                type: "String",
+                required: true,
+                attributes: {
+                  options: ["none", "small", "medium", "large"],
+                },
+                showIf: { layout_style: "Horizontal" },
               },
               {
                 name: "primary_color_light",
