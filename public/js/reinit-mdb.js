@@ -38,6 +38,35 @@
     });
   }
 
+  // Tabs & Pills: data-bs-toggle="tab" | "pill" | "list".
+  // MDB only wires its delegated tab click handler when a [data-bs-tab-init],
+  function initTabs(root) {
+    var nodes = root.querySelectorAll(
+      '[data-bs-toggle="tab"]:not([data-bs-tab-initialized]),' +
+        '[data-bs-toggle="pill"]:not([data-bs-tab-initialized]),' +
+        '[data-bs-toggle="list"]:not([data-bs-tab-initialized])'
+    );
+    var C = mdb();
+    if (!C || !C.Tab) return;
+    nodes.forEach(function (el) {
+      try {
+        el.setAttribute('data-bs-tab-initialized', 'true');
+        // Constructing the instance also enables arrow-key navigation between tabs.
+        C.Tab.getOrCreateInstance(el);
+        el.addEventListener('click', function (e) {
+          if (el.tagName === 'A' || el.tagName === 'AREA') e.preventDefault();
+          if (
+            el.classList.contains('disabled') ||
+            el.getAttribute('aria-disabled') === 'true' ||
+            el.hasAttribute('disabled')
+          )
+            return;
+          C.Tab.getOrCreateInstance(el).show();
+        });
+      } catch (e) {}
+    });
+  }
+
   // Toasts: initialising registers the global [data-bs-dismiss="toast"] handler
   function initToasts(root) {
     var nodes = root.querySelectorAll('.toast:not([data-bs-toast-initialized])');
@@ -68,6 +97,7 @@
     root = root || document;
     initDropdowns(root);
     initCollapses(root);
+    initTabs(root);
     initToasts(root);
     initAlerts(root);
   }
