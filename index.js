@@ -72,6 +72,46 @@ const horizontalLineItem = (classes = []) =>
     hr({ class: ["hr my-1"] }),
   );
 
+// Global search menu item; submits to /search?q=...
+// MDB outlined input group. Avoids the menusearch/search-bar classes so
+// saltcorn.css search-bar rules don't restyle it
+let searchFormCount = 0;
+const searchForm = (item, classes = []) => {
+  const id = `globalsearch_${searchFormCount++}`;
+  return form(
+    {
+      action: "/search",
+      class: ["global-search", ...classes],
+      method: "get",
+      autocomplete: "off",
+      role: "search",
+    },
+    div(
+      { class: "input-group flex-nowrap" },
+      div(
+        { class: "form-outline", "data-bs-input-init": "" },
+        input({ type: "search", id, class: "form-control", name: "q" }),
+        mkTag("label")(
+          { class: "form-label", for: id },
+          text(item.label || "Search"),
+        ),
+      ),
+      button(
+        {
+          type: "submit",
+          class: "btn btn-primary px-3",
+          "data-bs-ripple-init": "",
+          "aria-label": "Search",
+          ...(item.tooltip
+            ? { "data-bs-tooltip-init": "", title: item.tooltip }
+            : {}),
+        },
+        i({ class: "fas fa-search" }),
+      ),
+    ),
+  );
+};
+
 const verticalUserSubItem = (currentUrl, config) => {
   const renderNestedDropdown = (item, parentId, subIx) => {
     if (!item.subitems || !item.subitems.length) {
@@ -318,29 +358,7 @@ const verticalSideBarItem =
         item.type === "Separator"
           ? horizontalLineItem()
           : item.type === "Search"
-            ? form(
-                {
-                  action: "/search",
-                  class: "menusearch ms-2",
-                  method: "get",
-                  autocomplete: "off",
-                  novalidate: "",
-                },
-                div(
-                  { class: "input-icon" },
-                  span(
-                    { class: "input-icon-addon" },
-                    i({ class: "fas fa-search" }),
-                  ),
-                  input({
-                    type: "text",
-                    value: "",
-                    class: "form-control",
-                    placeholder: "Search…",
-                    "aria-label": "Search in website",
-                  }),
-                ),
-              )
+            ? searchForm(item, ["px-2 py-1"])
             : item.subitems
               ? [
                   a(
@@ -1399,6 +1417,11 @@ const horizontal_header_sections = (
             .map((item, ix) => {
               if (item.type === "Separator")
                 return li({ class: "nav-item" }, div({ class: "vr mx-2" }));
+              if (item.type === "Search")
+                return li(
+                  { class: "nav-item d-flex align-items-center" },
+                  searchForm(item, ["mx-lg-2 my-1 my-lg-0"]),
+                );
               if (item.subitems && item.subitems.length)
                 return li(
                   { class: "nav-item dropdown" },
@@ -1477,6 +1500,11 @@ const horizontal_header_sections = (
                 .map((section) => section.items)
                 .flat()
                 .map((item, ix) => {
+                  if (item.type === "Search")
+                    return li(
+                      { class: "nav-item d-flex align-items-center" },
+                      searchForm(item, ["mx-lg-2 my-1 my-lg-0"]),
+                    );
                   if (item.subitems && item.subitems.length)
                     return li(
                       { class: "nav-item dropdown" },
